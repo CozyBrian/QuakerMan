@@ -7,8 +7,10 @@ const firebaseConfig = {
   projectId: process.env.FIREBASE_PROJECT_ID,
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: "1:870805883123:web:c979664ed96d8331968f86"
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 
-const app = initializeApp(firebaseConfig);
+const FirebaseApp = initializeApp(firebaseConfig);
+
+export default FirebaseApp;
