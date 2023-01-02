@@ -18,6 +18,7 @@ Once you have all the necessary information you can put them in a .env file in y
 ## Getting Started
 run to setup
 > yarn install && yarn build
+
 run to start the server
 > yarn start
 
