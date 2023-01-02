@@ -1,7 +1,7 @@
 require('dotenv').config();
 import http from "http";
 import app from "./app";
-import cron from "node-cron";
+// import cron from "node-cron";
 import TweetForMe from "./cron";
 
 const PORT = process.env.PORT || 3001;
@@ -12,7 +12,8 @@ function startServer() {
   server.listen(PORT, () => {
     console.log("Welcome to QuackerMan");
     console.log(`running on port ${PORT}`);
-    cron.schedule("* * * * *", TweetForMe);
+    setInterval(TweetForMe, 1000 * 60)
+    // cron.schedule("* * * * *", TweetForMe);
   });
 }
 
