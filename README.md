@@ -21,3 +21,4 @@ run to setup
 run to start the server
 > yarn start
 
+this is pretty rough but functional, So I'm open to contributions😊
