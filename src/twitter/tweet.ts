@@ -8,3 +8,7 @@ export const tweetItem = async (text: string) => {
     console.log(error);
   }
 }
+
+export const getCurrentUser = async () => {
+  return (await (rwClient.v2.me({"user.fields": ["profile_image_url"]}))).data;
+}

@@ -1,5 +1,5 @@
 # QuakerMan
-QuakerMan is a tweet scheduling bot that allows you to schedule tweets in advance. In order to use QuakerMan, you will need to have a Twitter Developer account. You can apply for a developer account at https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api.
+QuakerMan is a tweet scheduling bot that allows you to schedule tweets in advance. In order to use QuakerMan, you will need to have a Twitter Developer account and a Firebase account. You can apply for a developer account at https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api.
 
 QuakerMan uses Firebase Firestore as a database to store the tweets that you have scheduled. The QuakerMan API offers the following endpoints for interacting with your scheduled tweets:
 
