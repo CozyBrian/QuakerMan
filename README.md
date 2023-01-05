@@ -37,12 +37,15 @@ Once you have set up your database, you can use the following endpoints to inter
 ```
 
 - DELETE v1/tweets/:id - This endpoint allows you to delete a specific tweet that you have scheduled. The id of the tweet to be deleted should be passed as a parameter in the URL. If the id is not provided, the endpoint will return an error.
+
 ```json
 {
   "item": "289732uowuer"
 }
+```
 
 - PUT v1/tweets/ - This endpoint allows you to update an existing tweet that you have scheduled. The request body should include the updated fields for the tweet.
+
 ```json
 {
   "item": {
