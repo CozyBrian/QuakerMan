@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "yarn install && cd client && yarn install",
+    "prebuild": "yarn install && cd client && yarn install",
     "start": "node dist/index.js",
     "client": "cd client && yarn start",
     "build:client": "cd client && yarn build",
