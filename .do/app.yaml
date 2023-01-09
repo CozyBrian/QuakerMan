@@ -1,0 +1,8 @@
+spec:
+  name: quakerman
+  services:
+  - dockerfile_path: dockerfile
+    git:
+      branch: main
+      repo_clone_url: https://github.com/CozyBrian/QuakerMan.git
+    name: quakerman
