@@ -3,7 +3,6 @@ import http from "http";
 import app from "./app";
 import cron from "node-cron";
 import TweetForMe from "./cron";
-import { getCurrentUser } from "./twitter/tweet";
 
 const PORT = process.env.PORT || 3001;
 
