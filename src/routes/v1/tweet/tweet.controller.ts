@@ -3,7 +3,7 @@ import { addTweet, getTweets, deleteTweet as delTweet, EditTweet } from "../../.
 const nanoid = require('nanoid');
 
 export const createTweet = (req: Request, res: Response) => {
-  const text = req.body.text;
+  const text = req.body.text as string;
   const timestamp = req.body.timestamp;
   const tweet = {
     id: nanoid(),
@@ -11,6 +11,11 @@ export const createTweet = (req: Request, res: Response) => {
     timestamp: { seconds: timestamp, nanoseconds: 0 },
     isTweeted: false,
   };
+
+  if (text.length > 280) { 
+    res.status(400).send({ error: "text is too long" });
+  }
+
   addTweet(tweet).then(() => {
     res.send({ item: tweet });
   }).catch((error) => {
