@@ -11,7 +11,7 @@ function App() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    axios.all([axios.get("http://localhost:3001/v1/users"), axios.get("http://localhost:3001/v1/tweets")]).then(
+    axios.all([axios.get("/v1/users"), axios.get("/v1/tweets")]).then(
       axios.spread((user, tweets) => {
         setUser(user.data.user);
         setTweets(tweets.data.items);
@@ -21,14 +21,14 @@ function App() {
 
   const addTweet = () => {
     axios
-      .post("http://localhost:3001/v1/tweets", {
+      .post("/v1/tweets", {
         text,
         timestamp: Math.round(timedate.getTime() / 1000),
       })
       .then((result) => {
         console.log(result);
 
-        axios.get("http://localhost:3001/v1/tweets").then((res) => {
+        axios.get("/v1/tweets").then((res) => {
           setTweets(res.data.items);
         });
       });
