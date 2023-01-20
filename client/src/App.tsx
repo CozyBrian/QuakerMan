@@ -14,7 +14,10 @@ function App() {
     axios.all([axios.get("/v1/users"), axios.get("/v1/tweets")]).then(
       axios.spread((user, tweets) => {
         setUser(user.data.user);
-        setTweets(tweets.data.items);
+        const TweetData = tweets.data.items as tweet[];
+
+        const SortedTweetData = TweetData.sort((itemA, itemB) => itemB.timestamp.seconds - itemA.timestamp.seconds)
+        setTweets(SortedTweetData);
       })
     );
   }, []);
@@ -28,8 +31,11 @@ function App() {
       .then((result) => {
         console.log(result);
 
-        axios.get("/v1/tweets").then((res) => {
-          setTweets(res.data.items);
+        axios.get("/v1/tweets").then((tweets) => {
+          const TweetData = tweets.data.items as tweet[];
+
+          const SortedTweetData = TweetData.sort((itemA, itemB) => itemB.timestamp.seconds - itemA.timestamp.seconds)
+          setTweets(SortedTweetData);setTweets(tweets.data.items);
         });
       });
   };
@@ -69,7 +75,7 @@ function App() {
             <div className="flex flex-1 flex-col items-center">
               <p>Scheduled</p>
               <div className="flex flex-col items-center gap-1 w-full px-8 lg:px-14">
-                {tweets.map(
+                {tweets.reverse().map(
                   (tweet, i) =>
                     !tweet.isTweeted && (
                       <TweetBox
