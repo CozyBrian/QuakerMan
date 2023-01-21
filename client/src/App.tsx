@@ -49,7 +49,6 @@ function App() {
   };
 
   return (
-    user && (
       <div className="bg-gray-900 w-screen min-h-screen pb-16 flex items-center flex-col xl:px-[300px]">
         <p className="text-5xl p-8 text-sky-100">QuakerMan</p>
         <div className="container bg-gray-600 xl:mx-[300px] h-full flex items-center flex-col pb-16 rounded-xl">
@@ -77,7 +76,7 @@ function App() {
               <div className="flex flex-col items-center gap-1 w-full px-8 lg:px-14">
                 {tweets.reverse().map(
                   (tweet, i) =>
-                    !tweet.isTweeted && (
+                    (!tweet.isTweeted && user) && (
                       <TweetBox
                         key={`sch-${i}`}
                         onClick={deleteTweet}
@@ -93,7 +92,7 @@ function App() {
               <div className="flex flex-col items-center gap-1 w-full px-8 lg:px-14">
                 {tweets.map(
                   (tweet, i) =>
-                    tweet.isTweeted && (
+                    (tweet.isTweeted && user) && (
                       <TweetBox
                         onClick={(id) => {
                           console.log(id);
@@ -109,7 +108,6 @@ function App() {
           </div>
         </div>
       </div>
-    )
   );
 }
 
