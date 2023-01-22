@@ -53,11 +53,16 @@ function App() {
         <p className="text-5xl p-8 text-sky-100">QuakerMan</p>
         <div className="container bg-gray-600 xl:mx-[300px] h-full flex items-center flex-col pb-16 rounded-xl">
           <div className="relative w-full flex items-center flex-col md:flex-row justify-center gap-2 px-4">
-            <input
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              className="p-2 text-lg w-full my-4 rounded-xl bg-gray-400 outline-none"
-            />
+            <div className="relative flex flex-col w-full">
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="p-3 text-lg my-4 w-full rounded-xl bg-gray-400 outline-none"
+                />
+                <div className="absolute right-0 -bottom-3">
+                  <p className="text-sky-100 text-md text-right">{text.length}/280</p>
+                </div>
+              </div>
             <div className="flex flex-row gap-2">
               <div className="p-2 text-lg  my-4 rounded-xl bg-gray-400">
                 <DateTimePicker onChange={(date) => setTimedate(date)} />
